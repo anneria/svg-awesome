@@ -1,0 +1,13 @@
+.gitignore
+
+node_modules
+.DS_Store
+.sass-cache
+
+css
+png
+svg-min
+svg-datauri
+svg-sprite
+
+dist/assets/*     
