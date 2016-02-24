@@ -3,10 +3,53 @@
 @import partials/datauri-svg
 @import partials/datauri-png
 
+// some form of grid we got going here
+// -----------------------------------
+$container-width: 100%
+$column-count: 4
+$margin: 1%
+
+.container 
+	width: $container-width
+.column 
+	background: #fafafa
+	height: 200px
+	display: block
+	float: left
+	width: ($container-width / $column-count) - ($margin * 2)
+	margin: 0 $margin
+
+// button 
+// -----------------------------------
+$buttonColor: #2ecc71
+$buttonDark: darken($buttonColor, 10%)
+$buttonDarker: darken($buttonDark, 10%)
+button 
+	width: 100%
+	background: $buttonColor
+	border-radius: 3px
+	box-shadow: 0px 5px 0px $buttonDark
+	border: 0
+	color: white
+	font-size: 17px
+	padding: 10px 30px
+	display: inline-block
+	outline: 0
+	&:hover 
+		background: $buttonDark
+		box-shadow: 0px 5px 0px $buttonDarker
+
+// svg baby, yeah
+// -----------------------------------
+=svg-support($svg)
+	background-image: url($svg)
+	background-repeat: no-repeat
+	background-size: 100% 100%
+
 *,
 *:after,
 *:before 
-	border-box: box-sizing 
+	box-sizing: border-box
 
 body, html
 	background: #ededed
@@ -21,7 +64,13 @@ h1
 	text-align: center 
 	font-size: 18px
 	background: #c5c5c5
-	padding: 10px
+	padding: 10px 0
+
+.foo
+	width: 100%
+	height: 100%
+	display: block
+	+svg-support($bowling-svg)
 
 // SVG & FALLBACK MIXIN
 $svg: true !default
